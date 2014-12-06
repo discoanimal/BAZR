@@ -11,35 +11,26 @@
 
 #import <Parse/Parse.h>
 #import "ProgressHUD.h"
-
 #import "AppConstant.h"
 #import "pushnotification.h"
-
 #import "RegisterView.h"
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-@interface RegisterView()
 
+@interface RegisterView()
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellName;
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellPassword;
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellEmail;
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellButton;
-
 @property (strong, nonatomic) IBOutlet UITextField *fieldName;
 @property (strong, nonatomic) IBOutlet UITextField *fieldPassword;
 @property (strong, nonatomic) IBOutlet UITextField *fieldEmail;
-
 @end
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 
 @implementation RegisterView
-
 @synthesize cellName, cellPassword, cellEmail, cellButton;
 @synthesize fieldName, fieldPassword, fieldEmail;
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)viewDidLoad
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[super viewDidLoad];
 	self.title = @"Register";

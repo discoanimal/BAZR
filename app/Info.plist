@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.relatedcode.chat</string>
+	<string>co.jlynch.Chat</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -23,14 +23,14 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb553468878097977</string>
+				<string>fb745507005526085</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>553468878097977</string>
+	<string>745507005526085</string>
 	<key>FacebookDisplayName</key>
 	<string>Chat</string>
 	<key>LSRequiresIPhoneOS</key>

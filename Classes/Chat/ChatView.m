@@ -11,48 +11,39 @@
 
 #import <Parse/Parse.h>
 #import "ProgressHUD.h"
-
 #import "AppConstant.h"
 #import "camera.h"
 #import "messages.h"
 #import "pushnotification.h"
-
 #import "ChatView.h"
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 @interface ChatView()
 {
 	NSTimer *timer;
 	BOOL isLoading;
-
 	NSString *roomId;
-
 	NSMutableArray *users;
 	NSMutableArray *messages;
 	NSMutableDictionary *avatars;
-
 	JSQMessagesBubbleImage *outgoingBubbleImageData;
 	JSQMessagesBubbleImage *incomingBubbleImageData;
-	
 	JSQMessagesAvatarImage *placeholderImageData;
 }
 @end
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 
 @implementation ChatView
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 - (id)initWith:(NSString *)roomId_
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	self = [super init];
 	roomId = roomId_;
 	return self;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 - (void)viewDidLoad
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[super viewDidLoad];
 	self.title = @"Chat";
@@ -60,11 +51,11 @@
 	users = [[NSMutableArray alloc] init];
 	messages = [[NSMutableArray alloc] init];
 	avatars = [[NSMutableDictionary alloc] init];
-
+    
 	PFUser *user = [PFUser currentUser];
 	self.senderId = user.objectId;
 	self.senderDisplayName = user[PF_USER_FULLNAME];
-
+    
 	JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
 	outgoingBubbleImageData = [bubbleFactory outgoingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleLightGrayColor]];
 	incomingBubbleImageData = [bubbleFactory incomingMessagesBubbleImageWithColor:[UIColor jsq_messageBubbleGreenColor]];
@@ -73,22 +64,17 @@
 
 	isLoading = NO;
 	[self loadMessages];
-
 	ClearMessageCounter(roomId);
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[super viewDidAppear:animated];
 	timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(loadMessages) userInfo:nil repeats:YES];
 	self.collectionView.collectionViewLayout.springinessEnabled = YES;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)viewWillDisappear:(BOOL)animated
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[super viewWillDisappear:animated];
 	[timer invalidate];
@@ -96,15 +82,12 @@
 
 #pragma mark - Backend methods
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)loadMessages
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	if (isLoading == NO)
 	{
 		isLoading = YES;
 		JSQMessage *message_last = [messages lastObject];
-
 		PFQuery *query = [PFQuery queryWithClassName:PF_CHAT_CLASS_NAME];
 		[query whereKey:PF_CHAT_ROOMID equalTo:roomId];
 		if (message_last != nil) [query whereKey:PF_CHAT_CREATEDAT greaterThan:message_last.date];
@@ -127,20 +110,19 @@
 	}
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 - (void)addMessage:(PFObject *)object
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	PFUser *user = object[PF_CHAT_USER];
 	[users addObject:user];
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	if (object[PF_CHAT_PICTURE] == nil)
 	{
 		JSQMessage *message = [[JSQMessage alloc] initWithSenderId:user.objectId senderDisplayName:user[PF_USER_FULLNAME]
 																	  date:object.createdAt text:object[PF_CHAT_TEXT]];
 		[messages addObject:message];
 	}
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+	
 	if (object[PF_CHAT_PICTURE] != nil)
 	{
 		JSQPhotoMediaItem *mediaItem = [[JSQPhotoMediaItem alloc] initWithImage:nil];
@@ -161,12 +143,10 @@
 	}
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 - (void)sendMessage:(NSString *)text Picture:(UIImage *)picture
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	PFFile *filePicture = nil;
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if (picture != nil)
 	{
 		filePicture = [PFFile fileWithName:@"picture.jpg" data:UIImageJPEGRepresentation(picture, 0.6)];
@@ -175,7 +155,7 @@
 			if (error != nil) NSLog(@"sendMessage picture save error.");
 		}];
 	}
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+    
 	PFObject *object = [PFObject objectWithClassName:PF_CHAT_CLASS_NAME];
 	object[PF_CHAT_USER] = [PFUser currentUser];
 	object[PF_CHAT_ROOMID] = roomId;
@@ -190,25 +170,21 @@
 		}
 		else [ProgressHUD showError:@"Network error."];;
 	}];
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	SendPushNotification(roomId, text);
 	UpdateMessageCounter(roomId, text);
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+
 	[self finishSendingMessage];
 }
 
 #pragma mark - JSQMessagesViewController method overrides
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)didPressSendButton:(UIButton *)button withMessageText:(NSString *)text senderId:(NSString *)senderId senderDisplayName:(NSString *)senderDisplayName date:(NSDate *)date
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[self sendMessage:text Picture:nil];
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 - (void)didPressAccessoryButton:(UIButton *)sender
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil
 											   otherButtonTitles:@"Take photo", @"Choose existing photo", nil];
@@ -216,17 +192,14 @@
 }
 
 #pragma mark - JSQMessages CollectionView DataSource
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (id<JSQMessageData>)collectionView:(JSQMessagesCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	return messages[indexPath.item];
 }
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView
 			 messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	JSQMessage *message = messages[indexPath.item];
 	if ([message.senderId isEqualToString:self.senderId])

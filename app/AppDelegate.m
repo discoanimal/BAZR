@@ -28,7 +28,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	[Parse setApplicationId:@"sRtJbiHUImOPq2KPHPda0QXqSXsAWokDNBYN4GfL" clientKey:@"iGS37ZA4FzOmeizqRVjMvZXj6RYdBKlm6aODZMNM"];
+	[Parse setApplicationId:@"QgIyLveKsyr84D2CydZKfZav1ORaE4fLKobSNseC" clientKey:@"0LNNXiAe96DEqur9xmiCfTjOnGqaDeTIUNV8joR7"];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[PFFacebookUtils initializeFacebook];
 	//---------------------------------------------------------------------------------------------------------------------------------------------

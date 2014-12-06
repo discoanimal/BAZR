@@ -104,6 +104,8 @@
 		29EB243619E9297900D7AA97 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB243419E9297900D7AA97 /* Parse.framework */; };
 		29EB243719E9297900D7AA97 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB243519E9297900D7AA97 /* ParseFacebookUtils.framework */; };
 		29EB255119E92B3600D7AA97 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB255019E92B3600D7AA97 /* FacebookSDK.framework */; };
+		A0D24F0D1A31C59200B2E251 /* bg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0D24F0B1A31C59200B2E251 /* bg2.jpg */; };
+		A0D24F0E1A31C59200B2E251 /* bg2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0D24F0C1A31C59200B2E251 /* bg2@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -288,7 +290,7 @@
 		296DD5E71A1F557900AB9F8C /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		29A2278819F3B05000ACA237 /* pushnotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pushnotification.h; sourceTree = "<group>"; };
 		29A2278919F3B05000ACA237 /* pushnotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pushnotification.m; sourceTree = "<group>"; };
-		29EB240519E9292500D7AA97 /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29EB240519E9292500D7AA97 /* BAZR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BAZR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29EB240919E9292500D7AA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29EB240A19E9292500D7AA97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29EB240C19E9292500D7AA97 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -299,6 +301,8 @@
 		29EB243519E9297900D7AA97 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		29EB254F19E92ACD00D7AA97 /* AppConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstant.h; sourceTree = "<group>"; };
 		29EB255019E92B3600D7AA97 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		A0D24F0B1A31C59200B2E251 /* bg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg2.jpg; sourceTree = "<group>"; };
+		A0D24F0C1A31C59200B2E251 /* bg2@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg2@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -519,6 +523,8 @@
 		2930F93419E96C73000F7799 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A0D24F0B1A31C59200B2E251 /* bg2.jpg */,
+				A0D24F0C1A31C59200B2E251 /* bg2@2x.jpg */,
 				2930F93619E96C73000F7799 /* blank_avatar@2x.png */,
 				2930F93719E96C73000F7799 /* blank_profile@2x.png */,
 				2930F93819E96C73000F7799 /* tab_group@2x.png */,
@@ -718,7 +724,7 @@
 		29EB240619E9292500D7AA97 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				29EB240519E9292500D7AA97 /* app.app */,
+				29EB240519E9292500D7AA97 /* BAZR.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -758,9 +764,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		29EB240419E9292500D7AA97 /* app */ = {
+		29EB240419E9292500D7AA97 /* BAZR */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 29EB242819E9292600D7AA97 /* Build configuration list for PBXNativeTarget "app" */;
+			buildConfigurationList = 29EB242819E9292600D7AA97 /* Build configuration list for PBXNativeTarget "BAZR" */;
 			buildPhases = (
 				29EB240119E9292500D7AA97 /* Sources */,
 				29EB240219E9292500D7AA97 /* Frameworks */,
@@ -770,9 +776,9 @@
 			);
 			dependencies = (
 			);
-			name = app;
+			name = BAZR;
 			productName = app;
-			productReference = 29EB240519E9292500D7AA97 /* app.app */;
+			productReference = 29EB240519E9292500D7AA97 /* BAZR.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -786,10 +792,11 @@
 				TargetAttributes = {
 					29EB240419E9292500D7AA97 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = D27NETEY96;
 					};
 				};
 			};
-			buildConfigurationList = 29EB240019E9292500D7AA97 /* Build configuration list for PBXProject "app" */;
+			buildConfigurationList = 29EB240019E9292500D7AA97 /* Build configuration list for PBXProject "BAZR" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -815,7 +822,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				29EB240419E9292500D7AA97 /* app */,
+				29EB240419E9292500D7AA97 /* BAZR */,
 			);
 		};
 /* End PBXProject section */
@@ -837,6 +844,7 @@
 				2930F93D19E96C73000F7799 /* blank_avatar@2x.png in Resources */,
 				296DD5E31A1F52F400AB9F8C /* JSQMessagesTypingIndicatorFooterView.xib in Resources */,
 				296DD5D71A1F52F400AB9F8C /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
+				A0D24F0E1A31C59200B2E251 /* bg2@2x.jpg in Resources */,
 				296DD5BA1A1F52F400AB9F8C /* JSQMessages.strings in Resources */,
 				2930F94219E96C73000F7799 /* tab_profile@2x.png in Resources */,
 				2930F94119E96C73000F7799 /* tab_private@2x.png in Resources */,
@@ -848,6 +856,7 @@
 				296DD5B91A1F52F400AB9F8C /* JSQMessagesAssets.bundle in Resources */,
 				296DD5C31A1F52F400AB9F8C /* JSQMessagesViewController.xib in Resources */,
 				29EB241619E9292500D7AA97 /* Images.xcassets in Resources */,
+				A0D24F0D1A31C59200B2E251 /* bg2.jpg in Resources */,
 				29271A6919F284B1009C308B /* WelcomeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -985,7 +994,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: co.jlynch.Chat";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: co.jlynch.Chat";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1026,7 +1036,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: co.jlynch.Chat";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: co.jlynch.Chat";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1048,13 +1059,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BAZR;
+				PROVISIONING_PROFILE = "a6de5392-d671-4b14-8cd5-ab17cdcc9c53";
 			};
 			name = Debug;
 		};
@@ -1062,20 +1075,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = app/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BAZR;
+				PROVISIONING_PROFILE = "a6de5392-d671-4b14-8cd5-ab17cdcc9c53";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		29EB240019E9292500D7AA97 /* Build configuration list for PBXProject "app" */ = {
+		29EB240019E9292500D7AA97 /* Build configuration list for PBXProject "BAZR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29EB242619E9292600D7AA97 /* Debug */,
@@ -1084,7 +1099,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		29EB242819E9292600D7AA97 /* Build configuration list for PBXNativeTarget "app" */ = {
+		29EB242819E9292600D7AA97 /* Build configuration list for PBXNativeTarget "BAZR" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				29EB242919E9292600D7AA97 /* Debug */,

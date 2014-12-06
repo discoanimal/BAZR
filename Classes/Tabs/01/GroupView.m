@@ -11,21 +11,19 @@
 
 #import <Parse/Parse.h>
 #import "ProgressHUD.h"
-
 #import "AppConstant.h"
 #import "messages.h"
 #import "utilities.h"
-
 #import "GroupView.h"
 #import "ChatView.h"
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 @interface GroupView()
 {
 	NSMutableArray *chatrooms;
 }
 @end
-//-------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 @implementation GroupView
 

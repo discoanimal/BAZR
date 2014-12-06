@@ -11,62 +11,44 @@
 
 #import <Parse/Parse.h>
 #import "ProgressHUD.h"
-
 #import "AppConstant.h"
 #import "pushnotification.h"
-
 #import "LoginView.h"
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
-@interface LoginView()
 
+@interface LoginView()
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellEmail;
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellPassword;
 @property (strong, nonatomic) IBOutlet UITableViewCell *cellButton;
-
 @property (strong, nonatomic) IBOutlet UITextField *fieldEmail;
 @property (strong, nonatomic) IBOutlet UITextField *fieldPassword;
-
 @end
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 
 @implementation LoginView
-
 @synthesize cellEmail, cellPassword, cellButton;
 @synthesize fieldEmail, fieldPassword;
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)viewDidLoad
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[super viewDidLoad];
 	self.title = @"Login";
-	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
-	//---------------------------------------------------------------------------------------------------------------------------------------------
-	self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)viewDidAppear:(BOOL)animated
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[super viewDidAppear:animated];
 	[fieldEmail becomeFirstResponder];
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)dismissKeyboard
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	[self.view endEditing:YES];
 }
 
 #pragma mark - User actions
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (IBAction)actionLogin:(id)sender
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	NSString *username = fieldEmail.text;
 	NSString *password = fieldPassword.text;
@@ -89,24 +71,17 @@
 }
 
 #pragma mark - Table view data source
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	return 1;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	return 3;
 }
 
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	if (indexPath.row == 0) return cellEmail;
 	if (indexPath.row == 1) return cellPassword;
@@ -115,10 +90,7 @@
 }
 
 #pragma mark - UITextField delegate
-
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
-//-------------------------------------------------------------------------------------------------------------------------------------------------
 {
 	if (textField == fieldEmail)
 	{
